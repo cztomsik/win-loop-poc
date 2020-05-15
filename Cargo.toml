@@ -1,0 +1,15 @@
+[package]
+name = "win-loop-poc"
+version = "0.1.0"
+authors = ["Kamil Tomšík <info@tomsik.cz>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+# there's a bug in glfw < 3.3
+# https://github.com/glfw/glfw/issues/1588
+# https://github.com/glfw/glfw/issues/1649
+# glfw-sys = "3.3.2"
+graffiti-glfw = { git = "https://github.com/cztomsik/graffiti-glfw", branch = "3.3-stable" }
