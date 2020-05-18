@@ -15,6 +15,8 @@ pub unsafe fn init() {
         loop {
             std::thread::sleep(std::time::Duration::from_millis(30));
 
+            println!("uv_timeout {}", uv_backend_timeout(uv_loop));
+
             let mut ev = unsafe { std::mem::zeroed::<kevent>() };
             let timespec = unsafe { std::mem::zeroed::<timespec>() };
             let res = kevent(node_fd, std::ptr::null(), 0, &mut ev, 1, &timespec);
